@@ -13,14 +13,19 @@ const Popularjobs = () => {
     'search', {
       query: 'React developer',
       num_pages: 1
-    }
-  )
+    });
 
+  const [selectedJob, setSelectedJob] = useState();
+
+  const handleCardPress = (item) => {
+    router.push(`/job-details/${item.job_id}`);
+    setSelectedJob(item.job_id)
+  }
 
 
   return (
-    <View>
-      <View>
+    <View style={styles.container}>
+      <View style={styles.header}>
         <Text style={styles.headerTitle}>Popularjobs</Text>
         <TouchableOpacity>
           <Text style={styles.headerBtn}>Show all</Text>
